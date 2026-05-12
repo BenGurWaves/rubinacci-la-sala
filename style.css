@@ -2,12 +2,12 @@
 /* Cuoio e Seta palette — Playfair Display solo-typeface system */
 
 :root {
-  --cuoio:       #12100D;
-  --cuoio-medio: #1A1712;
-  --pergamena:   #F2EDE5;
-  --terra:       #7A3020;
-  --argento:     #8A8278;
-  --filo:        #2A2520;
+  --cuoio:       #F3EDE6;
+  --cuoio-medio: #EBE5DC;
+  --pergamena:   #3D3630;
+  --terra:       #B88A7A;
+  --argento:     #9E9488;
+  --filo:        #D5CFC7;
   --serif:       'Playfair Display', Georgia, serif;
   --ease:        cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-deep:   cubic-bezier(0.65, 0, 0.35, 1);
@@ -35,7 +35,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 2h4M2 0v4' stroke='%23F2EDE5' stroke-width='0.5' opacity='0.03'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 2h4M2 0v4' stroke='%233D3630' stroke-width='0.5' opacity='0.03'/%3E%3C/svg%3E");
   background-repeat: repeat;
   pointer-events: none;
   z-index: 1;
@@ -152,7 +152,6 @@ body::before {
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition: width 0.3s var(--ease), height 0.3s var(--ease), background 0.3s var(--ease);
-  mix-blend-mode: difference;
 }
 
 #cursor.is-hover {
