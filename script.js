@@ -13,43 +13,63 @@ document.addEventListener('DOMContentLoaded', () => {
   const indexTrigger = document.getElementById('index-trigger');
   const indexClose = document.getElementById('index-close');
 
-  setTimeout(() => { cipher.classList.add('is-drawn'); }, 200);
-  setTimeout(() => { rule.classList.add('is-drawn'); }, 800);
-  setTimeout(() => { statement.classList.add('is-visible'); }, 1200);
-  setTimeout(() => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const delay = (ms, fn) => prefersReduced ? fn() : setTimeout(fn, ms);
+
+  delay(200, () => cipher.classList.add('is-drawn'));
+  delay(800, () => rule.classList.add('is-drawn'));
+  delay(1200, () => statement.classList.add('is-visible'));
+  delay(3200, () => {
     loader.classList.add('is-hidden');
     heroTitle.classList.add('is-visible');
     heroSub.classList.add('is-visible');
     heroRule.classList.add('is-drawn');
     heroLine.classList.add('is-visible');
     scrollCue.classList.add('is-visible');
-  }, 3200);
-
-  let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
   });
 
-  function updateCursor() {
-    curX += (mouseX - curX) * 0.15;
-    curY += (mouseY - curY) * 0.15;
-    cursor.style.left = curX + 'px';
-    cursor.style.top = curY + 'px';
-    requestAnimationFrame(updateCursor);
+  const isTouch = window.matchMedia('(hover: none)').matches;
+
+  if (!isTouch && cursor) {
+    let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function updateCursor() {
+      curX += (mouseX - curX) * 0.15;
+      curY += (mouseY - curY) * 0.15;
+      cursor.style.left = curX + 'px';
+      cursor.style.top = curY + 'px';
+      requestAnimationFrame(updateCursor);
+    }
+    updateCursor();
+
+    document.querySelectorAll('a, button, .p-frame-br, .index-close').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
+    });
   }
-  updateCursor();
-
-  document.querySelectorAll('a, button, .p-frame-br, .index-close').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
-  });
 
   indexTrigger.addEventListener('click', () => indexPanel.classList.add('is-open'));
   indexClose.addEventListener('click', () => indexPanel.classList.remove('is-open'));
   document.querySelectorAll('.index-nav a').forEach(a => {
     a.addEventListener('click', () => indexPanel.classList.remove('is-open'));
   });
+
+  // Swipe to close index panel
+  let touchStartX = 0;
+  indexPanel.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  indexPanel.addEventListener('touchend', (e) => {
+    const touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) {
+      indexPanel.classList.remove('is-open');
+    }
+  }, { passive: true });
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -63,12 +83,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.chapter-ghost').forEach(ghost => {
     const parent = ghost.closest('.chapter');
-    parent.addEventListener('mousemove', (e) => {
+    if (!parent) return;
+
+    const moveGhost = (x, y) => {
       const rect = parent.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      ghost.style.transform = `translate(calc(-50% + ${x * -20}px), calc(-50% + ${y * -20}px))`;
-    });
+      const gx = (x - rect.left) / rect.width - 0.5;
+      const gy = (y - rect.top) / rect.height - 0.5;
+      ghost.style.transform = `translate(calc(-50% + ${gx * -20}px), calc(-50% + ${gy * -20}px))`;
+    };
+
+    parent.addEventListener('mousemove', (e) => moveGhost(e.clientX, e.clientY));
+    parent.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) moveGhost(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive: true });
     parent.addEventListener('mouseleave', () => {
       ghost.style.transform = 'translate(-50%, -50%)';
     });
@@ -78,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     a.addEventListener('click', (e) => {
       e.preventDefault();
       const target = document.querySelector(a.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      if (target) target.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' });
     });
   });
 });
