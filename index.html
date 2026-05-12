@@ -1,444 +1,210 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#0F1626" />
-<title>Maison Rubinacci · Bolt N° 32 · The Unstructured Jacket</title>
-<meta name="description" content="A bolt of Neapolitan indigo wool, 540 centimetres long, marked in tailor's chalk for the soft-shouldered jacket Gennaro Rubinacci cut in 1932. Drift along the cloth, selvedge to selvedge." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison Rubinacci &middot; Napoli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="is-loading">
+<body>
 
-  <!-- ─── Loader ──────────────────────────────────────────────────────────
-       A single chalk line drawn across the bolt, 0 → 540 cm, then settles. -->
-  <div id="loader" aria-hidden="true">
+  <!-- LOADER -->
+  <div id="loader">
     <div class="loader-frame">
-      <div class="loader-mast">
-        <span class="loader-house">Maison Rubinacci</span>
-        <span class="loader-since">Napoli · MCMXXXII</span>
-      </div>
-      <svg class="loader-bolt" viewBox="0 0 1080 80" preserveAspectRatio="none" aria-hidden="true">
-        <line x1="0" y1="40" x2="1080" y2="40" stroke="rgba(241,236,226,0.16)" stroke-width="0.6"/>
-        <line id="loader-chalk" x1="0" y1="40" x2="0" y2="40" stroke="#FAF6EC" stroke-width="1.1" stroke-linecap="square"/>
-        <g id="loader-ticks"></g>
-      </svg>
-      <div class="loader-readout">
-        <span class="loader-label">Unrolling the bolt</span>
-        <span class="loader-cm"><span id="loader-cm-num">000</span><span class="loader-cm-unit">cm</span> / 540 cm</span>
-      </div>
-      <div class="loader-statement">
-        <em>The cloth is being laid out for marking.</em>
-      </div>
+      <span>Maison Rubinacci</span>
+      <span>MCMXXXII</span>
     </div>
+    <svg class="loader-cipher" viewBox="0 0 200 60" aria-hidden="true">
+      <path class="cipher-stroke" d="M18,48 L18,12 L36,34 L54,12 L54,48 M76,48 L76,12 L106,12 L106,28 L76,28 L106,48" />
+    </svg>
+    <div class="loader-rule"></div>
+    <p class="loader-statement">A house is being measured.</p>
   </div>
 
-  <!-- ─── Persistent frame: tiny mastheads, no nav ─────────────────────── -->
-  <header class="frame frame-tl" aria-label="atelier">
-    <span class="frame-mark">M·R</span>
-    <span class="frame-sub">Maison Rubinacci</span>
-    <span class="frame-line">Napoli · Milano · London</span>
-  </header>
-  <header class="frame frame-tr" aria-label="origin">
-    <span class="frame-coord">40°50′ N · 14°15′ E</span>
-    <span class="frame-line">Bolt N° 32 · Indigo lana fresca</span>
-    <span class="frame-line">540 cm · 9 oz · selvedge to selvedge</span>
-  </header>
-  <footer class="frame frame-bl" aria-label="cipher">
-    <span class="frame-line">Cut from the 1932 master pattern</span>
-    <span class="frame-line">— Gennaro Rubinacci, London House</span>
-  </footer>
-  <footer class="frame frame-br" aria-label="colophon">
-    <span class="frame-line">Drift the cloth · drag, wheel, ←→</span>
-    <span class="frame-line">Pinch to read a piece · esc to release</span>
-  </footer>
+  <!-- PERSISTENT FRAME -->
+  <div class="p-frame">
+    <div class="p-frame-tl">M&middot;R</div>
+    <div class="p-frame-tr">MCMXXXII</div>
+    <div class="p-frame-bl">40.8359&deg; N &middot; 14.2488&deg; E</div>
+    <div class="p-frame-br" id="index-trigger">Index</div>
+  </div>
 
-  <!-- ─── The bolt: full-viewport SVG, the only spatial element ─────────── -->
-  <main id="stage" aria-label="The bolt of cloth">
-    <div id="cloth-shell">
-      <svg id="bolt"
-           viewBox="0 0 5400 1080"
-           preserveAspectRatio="xMinYMid slice"
-           xmlns="http://www.w3.org/2000/svg"
-           role="img"
-           aria-label="Bolt of Neapolitan indigo wool, 540 centimetres, marked in tailor's chalk with the eight pattern pieces of the unstructured jacket.">
-        <defs>
-          <!-- Diagonal weave: hairline twill, very low contrast -->
-          <pattern id="weave" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(28)">
-            <rect width="6" height="6" fill="#1C2945"/>
-            <line x1="0" y1="0" x2="0" y2="6" stroke="#243556" stroke-width="0.45"/>
-            <line x1="3" y1="0" x2="3" y2="6" stroke="#162038" stroke-width="0.45"/>
-          </pattern>
+  <!-- INDEX PANEL -->
+  <div id="index-panel">
+    <div class="index-close" id="index-close">Chiudi</div>
+    <nav class="index-nav">
+      <a href="#hero" data-num="I"><span class="index-num">I</span><span class="index-label">L&rsquo;Atelier</span></a>
+      <a href="#spalla" data-num="II"><span class="index-num">II</span><span class="index-label">La Spalla</span></a>
+      <a href="#mani" data-num="III"><span class="index-num">III</span><span class="index-label">Le Mani</span></a>
+      <a href="#uomo" data-num="IV"><span class="index-num">IV</span><span class="index-label">L&rsquo;Uomo</span></a>
+      <a href="#correspondence" data-num="V"><span class="index-num">V</span><span class="index-label">Correspondence</span></a>
+    </nav>
+  </div>
 
-          <!-- Indigo gradient: deeper toward the rollers, softer mid-bolt -->
-          <linearGradient id="indigoSheen" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stop-color="#0F1626" stop-opacity="0.55"/>
-            <stop offset="50%"  stop-color="#1C2945" stop-opacity="0.0"/>
-            <stop offset="100%" stop-color="#0F1626" stop-opacity="0.55"/>
-          </linearGradient>
+  <!-- CUSTOM CURSOR -->
+  <div id="cursor" aria-hidden="true"></div>
 
-          <!-- Slow conic sheen highlight that sweeps the bolt -->
-          <linearGradient id="silkLight" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%"   stop-color="#3A4E76" stop-opacity="0"/>
-            <stop offset="48%"  stop-color="#5C7299" stop-opacity="0.18"/>
-            <stop offset="52%"  stop-color="#5C7299" stop-opacity="0.18"/>
-            <stop offset="100%" stop-color="#3A4E76" stop-opacity="0"/>
-          </linearGradient>
+  <!-- MAIN -->
+  <main id="main">
 
-          <!-- Vellum/foxing for chalk readability — never animated grain -->
-          <filter id="foxing" x="0" y="0" width="100%" height="100%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="t"/>
-            <feColorMatrix in="t" type="matrix"
-              values="0 0 0 0 0.06
-                      0 0 0 0 0.09
-                      0 0 0 0 0.18
-                      0 0 0 0.10 0"/>
-          </filter>
-
-          <!-- Chalk: soft, dusty stroke -->
-          <filter id="chalkSoft" x="-2%" y="-50%" width="104%" height="200%">
-            <feGaussianBlur stdDeviation="0.35"/>
-          </filter>
-
-          <!-- Selvedge fringe pattern -->
-          <pattern id="fringe" x="0" y="0" width="6" height="20" patternUnits="userSpaceOnUse">
-            <line x1="3" y1="0" x2="3" y2="14" stroke="#F1ECE2" stroke-width="0.5" opacity="0.55"/>
-          </pattern>
-        </defs>
-
-        <!-- Living texture: weave + indigo gradient + foxing + sheen -->
-        <rect id="cloth-base" x="-200" y="80" width="5800" height="920" fill="url(#weave)"/>
-        <rect              x="-200" y="80" width="5800" height="920" fill="url(#indigoSheen)"/>
-        <rect              x="-200" y="80" width="5800" height="920" fill="#0F1626" opacity="0.25" filter="url(#foxing)"/>
-
-        <!-- Selvedges (top + bottom edges of the cloth) -->
-        <rect x="-200" y="74"  width="5800" height="6" fill="url(#fringe)"/>
-        <rect x="-200" y="1000" width="5800" height="6" fill="url(#fringe)"/>
-        <line x1="-200" y1="80"  x2="5600" y2="80"  stroke="#F1ECE2" stroke-width="0.5" opacity="0.35"/>
-        <line x1="-200" y1="1000" x2="5600" y2="1000" stroke="#F1ECE2" stroke-width="0.5" opacity="0.35"/>
-
-        <!-- Sweeping silk highlight (animated via CSS transform) -->
-        <g id="sheen-band" opacity="0.7">
-          <rect x="-1200" y="80" width="2400" height="920" fill="url(#silkLight)"/>
-        </g>
-
-        <!-- ─── Pattern pieces (chalk hairlines on cloth) ────────────────
-             Each <g class="piece" data-cm="..."> contains:
-              · the pattern outline (chalk stroke)
-              · tailor's marks (notches, grain-line, darts, ticks)
-              · a chalk title (Bodoni small-caps) above the piece
-              · a tiny ordinal in the bottom-right of the piece -->
-
-        <!-- I · IL DAVANTI — the unstructured front, 1 to 95 cm -->
-        <g class="piece" data-cm="48" data-key="davanti">
-          <!-- title -->
-          <text class="piece-title" x="180" y="160" transform="rotate(-1 180 160)">I · Il Davanti</text>
-          <text class="piece-trans" x="180" y="190" transform="rotate(-1 180 190)">— the front panel</text>
-          <!-- outline: a soft single-breasted front, peak lapel, no canvas -->
-          <path class="piece-line" d="
-            M 120 250
-            C 160 260, 240 265, 300 270
-            L 320 360
-            C 340 380, 350 410, 348 440
-            L 358 720
-            C 360 770, 348 820, 320 870
-            L 240 905
-            C 180 915, 130 905, 92 880
-            L 70 540
-            C 60 440, 80 340, 120 250
-            Z"/>
-          <!-- lapel break -->
-          <path class="piece-line" d="M 300 270 L 220 470 L 250 720"/>
-          <!-- buttonholes -->
-          <circle class="piece-tick" cx="240" cy="540" r="3"/>
-          <circle class="piece-tick" cx="245" cy="600" r="3"/>
-          <circle class="piece-tick" cx="250" cy="660" r="3"/>
-          <!-- pocket flap -->
-          <path class="piece-line" d="M 130 720 L 280 720 L 285 760 L 130 760 Z"/>
-          <!-- grain-line arrow -->
-          <g class="grain">
-            <line x1="180" y1="380" x2="180" y2="780"/>
-            <polygon points="178,380 182,380 180,372"/>
-            <polygon points="178,780 182,780 180,788"/>
-            <text x="186" y="600">grana — drittofilo</text>
-          </g>
-          <!-- notches -->
-          <line class="piece-tick" x1="160" y1="250" x2="160" y2="262"/>
-          <line class="piece-tick" x1="220" y1="262" x2="220" y2="274"/>
-          <!-- piece ordinal -->
-          <text class="piece-mark" x="340" y="900">i.</text>
-        </g>
-
-        <!-- II · IL DIETRO — the back, single vent, 110 cm -->
-        <g class="piece" data-cm="118" data-key="dietro">
-          <text class="piece-title" x="640" y="170" transform="rotate(0.5 640 170)">II · Il Dietro</text>
-          <text class="piece-trans" x="640" y="200" transform="rotate(0.5 640 200)">— the back, single vent</text>
-          <!-- back panel with centre seam + single vent -->
-          <path class="piece-line" d="
-            M 640 270
-            C 700 260, 800 258, 880 272
-            L 900 880
-            C 880 905, 800 920, 720 920
-            C 660 920, 600 908, 590 880
-            L 610 360
-            C 614 320, 620 290, 640 270
-            Z"/>
-          <!-- centre back seam -->
-          <line class="piece-line" x1="745" y1="270" x2="745" y2="820"/>
-          <!-- single vent -->
-          <line class="piece-line" x1="745" y1="780" x2="745" y2="918"/>
-          <line class="piece-line" x1="730" y1="780" x2="760" y2="780"/>
-          <!-- shoulder yoke hint -->
-          <path class="piece-line" d="M 640 280 C 700 300, 800 300, 880 282"/>
-          <!-- grain -->
-          <g class="grain">
-            <line x1="745" y1="380" x2="745" y2="780"/>
-            <polygon points="743,380 747,380 745,372"/>
-            <polygon points="743,780 747,780 745,788"/>
-          </g>
-          <text class="piece-mark" x="876" y="912">ii.</text>
-        </g>
-
-        <!-- III · LA MANICA — the soft set-in sleeve, 200 cm -->
-        <g class="piece" data-cm="208" data-key="manica">
-          <text class="piece-title" x="1180" y="155" transform="rotate(-0.8 1180 155)">III · La Manica</text>
-          <text class="piece-trans" x="1180" y="185" transform="rotate(-0.8 1180 185)">— spalla camicia, soft sleeve-head</text>
-          <!-- two-piece sleeve, signature shirt-shoulder gathering -->
-          <path class="piece-line" d="
-            M 1180 240
-            C 1240 222, 1330 222, 1390 240
-            C 1430 254, 1450 280, 1448 310
-            L 1430 860
-            C 1428 890, 1410 906, 1380 910
-            L 1240 910
-            C 1208 906, 1192 890, 1190 860
-            L 1172 310
-            C 1170 280, 1180 254, 1180 240
-            Z"/>
-          <!-- inner seam -->
-          <path class="piece-line" d="M 1310 240 C 1316 380, 1316 760, 1310 910"/>
-          <!-- gathering ticks at the sleeve-head -->
-          <g class="piece-gather">
-            <line x1="1208" y1="248" x2="1208" y2="262"/>
-            <line x1="1240" y1="240" x2="1240" y2="254"/>
-            <line x1="1272" y1="234" x2="1272" y2="248"/>
-            <line x1="1310" y1="232" x2="1310" y2="246"/>
-            <line x1="1348" y1="234" x2="1348" y2="248"/>
-            <line x1="1380" y1="240" x2="1380" y2="254"/>
-            <line x1="1412" y1="248" x2="1412" y2="262"/>
-          </g>
-          <!-- grain -->
-          <g class="grain">
-            <line x1="1310" y1="320" x2="1310" y2="860"/>
-            <polygon points="1308,320 1312,320 1310,312"/>
-            <polygon points="1308,860 1312,860 1310,868"/>
-          </g>
-          <text class="piece-mark" x="1438" y="906">iii.</text>
-        </g>
-
-        <!-- IV · IL BAVERO — the lapel, 270 cm -->
-        <g class="piece" data-cm="280" data-key="bavero">
-          <text class="piece-title" x="1820" y="180" transform="rotate(0.6 1820 180)">IV · Il Bavero</text>
-          <text class="piece-trans" x="1820" y="210" transform="rotate(0.6 1820 210)">— the wide notch lapel</text>
-          <!-- lapel as a curved leaf shape -->
-          <path class="piece-line" d="
-            M 1820 280
-            C 1900 260, 2030 270, 2080 320
-            C 2140 380, 2120 480, 2050 540
-            L 1980 700
-            C 1940 760, 1880 780, 1840 760
-            C 1800 740, 1790 670, 1810 580
-            L 1830 380
-            C 1830 340, 1820 310, 1820 280
-            Z"/>
-          <!-- gorge line / notch -->
-          <line class="piece-line" x1="1990" y1="320" x2="2040" y2="370"/>
-          <line class="piece-line" x1="2010" y1="340" x2="2070" y2="320"/>
-          <!-- buttonhole on lapel -->
-          <path class="piece-line" d="M 1924 380 L 1944 376"/>
-          <text class="piece-mark" x="2098" y="700">iv.</text>
-        </g>
-
-        <!-- V · IL COLLO — the collar, 330 cm -->
-        <g class="piece" data-cm="335" data-key="collo">
-          <text class="piece-title" x="2360" y="200" transform="rotate(-0.4 2360 200)">V · Il Collo</text>
-          <text class="piece-trans" x="2360" y="230" transform="rotate(-0.4 2360 230)">— the under-collar, in melton</text>
-          <!-- collar: flat banana shape -->
-          <path class="piece-line" d="
-            M 2360 330
-            C 2440 290, 2620 290, 2700 330
-            C 2740 350, 2740 410, 2700 430
-            C 2620 470, 2440 470, 2360 430
-            C 2320 410, 2320 350, 2360 330
-            Z"/>
-          <!-- centre back fold line (dashed) -->
-          <line class="piece-line piece-dashed" x1="2530" y1="290" x2="2530" y2="470"/>
-          <!-- felling stitch ticks -->
-          <g class="piece-stitch">
-            <circle cx="2400" cy="370" r="1"/>
-            <circle cx="2420" cy="368" r="1"/>
-            <circle cx="2440" cy="367" r="1"/>
-            <circle cx="2460" cy="366" r="1"/>
-            <circle cx="2480" cy="365" r="1"/>
-            <circle cx="2500" cy="364" r="1"/>
-            <circle cx="2530" cy="364" r="1"/>
-            <circle cx="2560" cy="364" r="1"/>
-            <circle cx="2580" cy="365" r="1"/>
-            <circle cx="2600" cy="366" r="1"/>
-            <circle cx="2620" cy="367" r="1"/>
-            <circle cx="2640" cy="368" r="1"/>
-            <circle cx="2660" cy="370" r="1"/>
-          </g>
-          <text class="piece-mark" x="2710" y="468">v.</text>
-        </g>
-
-        <!-- VI · IL POLSO — the cuff, 380 cm -->
-        <g class="piece" data-cm="388" data-key="polso">
-          <text class="piece-title" x="2920" y="160" transform="rotate(0.3 2920 160)">VI · Il Polso</text>
-          <text class="piece-trans" x="2920" y="190" transform="rotate(0.3 2920 190)">— working buttonhole, four-on-one</text>
-          <!-- cuff: tall slim rectangle with rounded edges + 4 buttons -->
-          <path class="piece-line" d="
-            M 2920 260
-            C 2980 250, 3060 252, 3120 264
-            L 3140 880
-            C 3120 902, 3060 912, 2980 910
-            C 2920 908, 2900 894, 2900 870
-            L 2920 260
-            Z"/>
-          <!-- four working buttonholes -->
-          <g class="piece-tick">
-            <line x1="2960" y1="700" x2="2986" y2="700"/>
-            <line x1="2960" y1="744" x2="2986" y2="744"/>
-            <line x1="2960" y1="788" x2="2986" y2="788"/>
-            <line x1="2960" y1="832" x2="2986" y2="832"/>
-            <circle cx="3060" cy="700" r="3"/>
-            <circle cx="3060" cy="744" r="3"/>
-            <circle cx="3060" cy="788" r="3"/>
-            <circle cx="3060" cy="832" r="3"/>
-          </g>
-          <!-- "kissing" button overlap mark -->
-          <path class="piece-line piece-dashed" d="M 2940 680 L 3120 680"/>
-          <text class="piece-mark" x="3134" y="906">vi.</text>
-        </g>
-
-        <!-- VII · LA SPALLA CAMICIA — the soft shoulder, 440 cm -->
-        <g class="piece" data-cm="448" data-key="spalla">
-          <text class="piece-title" x="3560" y="170" transform="rotate(-0.5 3560 170)">VII · La Spalla Camicia</text>
-          <text class="piece-trans" x="3560" y="200" transform="rotate(-0.5 3560 200)">— the unmade shoulder; the maison signature</text>
-          <!-- a shoulder yoke shape with gathering ripples -->
-          <path class="piece-line" d="
-            M 3560 320
-            C 3680 260, 3900 240, 4080 270
-            C 4180 290, 4220 340, 4180 400
-            C 4140 460, 4040 480, 3920 470
-            C 3800 460, 3660 460, 3580 430
-            C 3520 410, 3520 360, 3560 320
-            Z"/>
-          <!-- mappina ripples (the famous gathered head) -->
-          <g class="piece-ripple">
-            <path d="M 3700 290 C 3720 280, 3740 282, 3760 290"/>
-            <path d="M 3760 282 C 3780 272, 3800 274, 3820 282"/>
-            <path d="M 3820 276 C 3840 266, 3860 268, 3880 276"/>
-            <path d="M 3880 274 C 3900 264, 3920 266, 3940 274"/>
-            <path d="M 3940 278 C 3960 268, 3980 270, 4000 278"/>
-            <path d="M 4000 286 C 4020 276, 4040 278, 4060 286"/>
-          </g>
-          <!-- arm-hole curve (chalk dashed) -->
-          <path class="piece-line piece-dashed" d="M 3580 430 C 3700 540, 3940 580, 4180 460"/>
-          <text class="piece-mark" x="4218" y="478">vii.</text>
-        </g>
-
-        <!-- VIII · LA FODERA — the half-canvas lining swatch, 510 cm -->
-        <g class="piece" data-cm="514" data-key="fodera">
-          <text class="piece-title" x="4760" y="180" transform="rotate(0.2 4760 180)">VIII · La Fodera</text>
-          <text class="piece-trans" x="4760" y="210" transform="rotate(0.2 4760 210)">— the half-canvas, Bemberg seta</text>
-          <!-- swatch: irregular rectangle with frayed edge -->
-          <path class="piece-line" d="
-            M 4760 280
-            L 5180 274
-            C 5220 274, 5240 296, 5238 320
-            L 5230 760
-            C 5228 800, 5210 820, 5180 822
-            L 4790 830
-            C 4760 832, 4740 818, 4738 792
-            L 4730 320
-            C 4728 296, 4742 282, 4760 280
-            Z"/>
-          <!-- frayed edge ticks (right side) -->
-          <g class="piece-fray">
-            <line x1="5238" y1="320" x2="5252" y2="318"/>
-            <line x1="5238" y1="380" x2="5256" y2="376"/>
-            <line x1="5238" y1="440" x2="5250" y2="438"/>
-            <line x1="5238" y1="500" x2="5258" y2="496"/>
-            <line x1="5238" y1="560" x2="5252" y2="558"/>
-            <line x1="5238" y1="620" x2="5256" y2="618"/>
-            <line x1="5238" y1="680" x2="5250" y2="678"/>
-            <line x1="5238" y1="740" x2="5258" y2="738"/>
-          </g>
-          <!-- pad-stitch field (the lapel canvas pad-stitching, in seta rubino) -->
-          <g class="piece-pad">
-            <path d="M 4800 360 L 4830 380 L 4860 360 L 4890 380 L 4920 360 L 4950 380 L 4980 360 L 5010 380 L 5040 360 L 5070 380 L 5100 360 L 5130 380 L 5160 360"/>
-            <path d="M 4800 420 L 4830 440 L 4860 420 L 4890 440 L 4920 420 L 4950 440 L 4980 420 L 5010 440 L 5040 420 L 5070 440 L 5100 420 L 5130 440 L 5160 420"/>
-            <path d="M 4800 480 L 4830 500 L 4860 480 L 4890 500 L 4920 480 L 4950 500 L 4980 480 L 5010 500 L 5040 480 L 5070 500 L 5100 480 L 5130 500 L 5160 480"/>
-            <path d="M 4800 540 L 4830 560 L 4860 540 L 4890 560 L 4920 540 L 4950 560 L 4980 540 L 5010 560 L 5040 540 L 5070 560 L 5100 540 L 5130 560 L 5160 540"/>
-            <path d="M 4800 600 L 4830 620 L 4860 600 L 4890 620 L 4920 600 L 4950 620 L 4980 600 L 5010 620 L 5040 600 L 5070 620 L 5100 600 L 5130 620 L 5160 600"/>
-            <path d="M 4800 660 L 4830 680 L 4860 660 L 4890 680 L 4920 660 L 4950 680 L 4980 660 L 5010 680 L 5040 660 L 5070 680 L 5100 660 L 5130 680 L 5160 660"/>
-            <path d="M 4800 720 L 4830 740 L 4860 720 L 4890 740 L 4920 720 L 4950 740 L 4980 720 L 5010 740 L 5040 720 L 5070 740 L 5100 720 L 5130 740 L 5160 720"/>
-          </g>
-          <text class="piece-mark" x="5246" y="822">viii.</text>
-        </g>
-
-        <!-- The maison cipher: a single chalk monogram at the far right end (selvedge mark) -->
-        <g id="cipher" transform="translate(5320, 540)">
-          <circle r="48" fill="none" stroke="#FAF6EC" stroke-width="0.6" opacity="0.5"/>
-          <circle r="36" fill="none" stroke="#FAF6EC" stroke-width="0.4" opacity="0.4"/>
-          <text class="cipher-mr" x="0" y="6" text-anchor="middle">M·R</text>
-          <text class="cipher-year" x="0" y="80" text-anchor="middle">since MCMXXXII</text>
-        </g>
-      </svg>
-    </div>
-
-    <!-- Prose stage: a single italic chapter line that disperses + arrives per piece -->
-    <section class="prose-stage" aria-live="polite">
-      <span class="prose-piece" id="prose-piece">I · Il Davanti</span>
-      <h1 class="prose-line" id="prose-line"></h1>
-      <span class="prose-cite" id="prose-cite">— Maison Rubinacci, Napoli, MMXXVI</span>
+    <!-- HERO -->
+    <section id="hero" class="viewport-full">
+      <div class="hero-inner">
+        <h1 class="hero-title">Rubinacci</h1>
+        <p class="hero-sub">Napoli &middot; 1932</p>
+        <div class="hero-rule"></div>
+        <p class="hero-line">Neapolitan tailoring since the year the house was founded on Via Chiatamone.</p>
+      </div>
+      <div class="scroll-cue">Scroll</div>
     </section>
 
-    <!-- Tape-measure rail: 0 → 540 cm -->
-    <nav id="rail" aria-label="Bolt position">
-      <div class="rail-spine"></div>
-      <div class="rail-track">
-        <!-- Major and minor cm ticks are drawn by JS for crisp DPI scaling -->
-        <ol id="rail-marks"></ol>
+    <!-- I. L&rsquo;ATELIER -->
+    <section id="atelier" class="chapter">
+      <div class="chapter-ghost">I</div>
+      <div class="chapter-grid">
+        <div class="chapter-visual">
+          <svg viewBox="0 0 400 520" class="visual-svg" aria-hidden="true">
+            <rect x="60" y="40" width="140" height="200" fill="none"/>
+            <line x1="60" y1="140" x2="200" y2="140"/>
+            <line x1="130" y1="40" x2="130" y2="240"/>
+            <line x1="40" y1="300" x2="360" y2="300"/>
+            <line x1="40" y1="340" x2="360" y2="340"/>
+            <line x1="40" y1="300" x2="40" y2="340"/>
+            <line x1="360" y1="300" x2="360" y2="340"/>
+            <line x1="240" y1="80" x2="380" y2="80"/>
+            <line x1="240" y1="110" x2="360" y2="110"/>
+            <line x1="240" y1="140" x2="340" y2="140"/>
+            <line x1="20" y1="440" x2="380" y2="440"/>
+            <line x1="20" y1="480" x2="380" y2="480"/>
+          </svg>
+        </div>
+        <div class="chapter-text">
+          <span class="chapter-ord">I &mdash;</span>
+          <h2 class="chapter-title">L&rsquo;Atelier</h2>
+          <p class="chapter-sub">Via Chiatamone, Napoli</p>
+          <div class="chapter-rule"></div>
+          <p class="chapter-body">Gennaro Rubinacci opened his doors in 1932, the same year the house was founded. The atelier occupies the ground floor of a palazzo on Via Chiatamone, steps from the sea. Inside, the walls are lined with bolts of cloth from Yorkshire, Biella, and the Vomero. The cutting table is oak, scarred by seventy years of shears. The light is Neapolitan &mdash; warm, sudden, exacting.</p>
+        </div>
       </div>
-      <div class="rail-readout">
-        <span class="rail-house">Bolt N° 32</span>
-        <span class="rail-cm"><span id="rail-cm-num">000</span> cm <span class="rail-of">/ 540 cm</span></span>
-      </div>
-    </nav>
+    </section>
 
-    <!-- Invitation to bespoke (no footer; this is the closing inscription on the cloth) -->
-    <aside id="invitation" aria-label="invitation">
-      <span class="inv-mark">∎</span>
-      <span class="inv-line">For a fitting at Via Filangieri 26, write to <a href="mailto:atelier@marianorubinacci.com">atelier@marianorubinacci.com</a></span>
-      <span class="inv-key">·  drift the cloth</span>
-    </aside>
+    <!-- II. LA SPALLA -->
+    <section id="spalla" class="chapter">
+      <div class="chapter-ghost">II</div>
+      <div class="chapter-grid chapter-grid-flip">
+        <div class="chapter-text">
+          <span class="chapter-ord">II &mdash;</span>
+          <h2 class="chapter-title">La Spalla Camicia</h2>
+          <p class="chapter-sub">The shirt shoulder &mdash; our signature</p>
+          <div class="chapter-rule"></div>
+          <p class="chapter-body">The Neapolitan shoulder is soft. It has no pad, no canvas, no structure that commands the cloth. Instead, the sleeve head is gathered by hand into small ripples &mdash; the mappina &mdash; and felled with stitches so fine they disappear into the weave. The result is a shoulder that moves like a shirt, that lives with the body rather than imposing upon it.</p>
+        </div>
+        <div class="chapter-visual">
+          <svg viewBox="0 0 400 520" class="visual-svg" aria-hidden="true">
+            <path d="M80,220 Q200,120 320,220"/>
+            <line x1="95" y1="204" x2="95" y2="180"/>
+            <line x1="125" y1="188" x2="125" y2="164"/>
+            <line x1="155" y1="176" x2="155" y2="152"/>
+            <line x1="185" y1="168" x2="185" y2="144"/>
+            <line x1="215" y1="164" x2="215" y2="140"/>
+            <line x1="245" y1="168" x2="245" y2="144"/>
+            <line x1="275" y1="178" x2="275" y2="154"/>
+            <line x1="305" y1="192" x2="305" y2="168"/>
+            <path d="M160,100 Q200,80 240,100" opacity="0.4"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- III. LE MANI -->
+    <section id="mani" class="chapter chapter-center">
+      <div class="chapter-ghost">III</div>
+      <div class="chapter-text-center">
+        <span class="chapter-ord">III &mdash;</span>
+        <h2 class="chapter-title">Le Mani</h2>
+        <p class="chapter-sub">The hands that make</p>
+        <div class="chapter-rule chapter-rule-center"></div>
+        <p class="chapter-body">Each jacket requires forty hours of handwork. The canvas is laid by eye, not by machine. The lapel is pad-stitched in silk thread, rolled by thumb and palm until it curves of its own accord toward the third button. The buttonholes are opened with a beeswaxed thread and a blunt needle &mdash; four at the cuff, the last two kissing. Every stitch is a decision.</p>
+      </div>
+      <div class="chapter-visual-center">
+        <svg viewBox="0 0 600 200" class="visual-svg-wide" aria-hidden="true">
+          <path d="M80,100 Q300,20 520,100"/>
+          <path d="M80,100 Q300,180 520,100"/>
+          <circle cx="300" cy="100" r="6" fill="none"/>
+          <ellipse cx="60" cy="85" rx="16" ry="22" fill="none" opacity="0.5"/>
+          <ellipse cx="60" cy="115" rx="16" ry="22" fill="none" opacity="0.5"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- IV. L&rsquo;UOMO -->
+    <section id="uomo" class="chapter">
+      <div class="chapter-ghost">IV</div>
+      <div class="chapter-grid">
+        <div class="chapter-visual">
+          <svg viewBox="0 0 400 520" class="visual-svg" aria-hidden="true">
+            <path d="M150,60 Q200,40 250,60 Q270,90 270,130 L270,170 Q290,190 310,230 L310,440 Q290,460 270,480 L270,500 L240,500 L240,480 L200,480 L200,500 L170,500 L170,480 Q150,460 130,440 L130,230 Q150,190 170,170 L170,130 Q170,90 150,60 Z"/>
+            <line x1="200" y1="130" x2="200" y2="480"/>
+            <line x1="200" y1="400" x2="200" y2="480" stroke-dasharray="4,3"/>
+            <path d="M130,230 Q110,240 100,280" opacity="0.5"/>
+            <path d="M310,230 Q330,240 340,280" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="chapter-text">
+          <span class="chapter-ord">IV &mdash;</span>
+          <h2 class="chapter-title">L&rsquo;Uomo</h2>
+          <p class="chapter-sub">The dressed man</p>
+          <div class="chapter-rule"></div>
+          <p class="chapter-body">A Rubinacci jacket is not worn; it is carried. The cloth is asked to remember a body, not to forget it. The front is cut in one pass, with no canvas in the chest. The back is a single panel, vented once for a man who walks. The result is a garment that weighs less than a letter, that moves with the wearer as a second, more elegant skin.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- V. CORRESPONDENCE -->
+    <section id="correspondence" class="chapter chapter-correspondence">
+      <div class="chapter-ghost">V</div>
+      <div class="correspondence-content">
+        <span class="chapter-ord">V &mdash;</span>
+        <h2 class="chapter-title">Correspondence</h2>
+        <p class="chapter-sub">Write to the atelier</p>
+        <div class="chapter-rule chapter-rule-center"></div>
+        <p class="correspondence-invite">For enquiries of<br><em>time, commission,</em><br>or correspondence &mdash;</p>
+        <a href="mailto:atelier@rubinacci.it" class="correspondence-link">atelier@rubinacci.it</a>
+      </div>
+    </section>
+
+    <!-- COLOPHON -->
+    <footer class="colophon">
+      <div class="colophon-grid">
+        <div class="colophon-cell">
+          <span class="colophon-num">I</span>
+          <span class="colophon-label">Founded</span>
+          <span class="colophon-value">MCMXXXII</span>
+        </div>
+        <div class="colophon-cell">
+          <span class="colophon-num">II</span>
+          <span class="colophon-label">Atelier</span>
+          <span class="colophon-value">Via Chiatamone</span>
+        </div>
+        <div class="colophon-cell">
+          <span class="colophon-num">III</span>
+          <span class="colophon-label">Cut</span>
+          <span class="colophon-value">By hand</span>
+        </div>
+        <div class="colophon-cell">
+          <span class="colophon-num">IV</span>
+          <span class="colophon-label">Measure</span>
+          <span class="colophon-value">Made to</span>
+        </div>
+      </div>
+      <div class="colophon-line">Typeset in Playfair Display &middot; Composed at the bench &middot; &copy; MMXXVI</div>
+    </footer>
+
   </main>
 
-  <!-- Custom cursor: tailor's chalk + chalk-dust trace canvas -->
-  <canvas id="dust" aria-hidden="true"></canvas>
-  <div id="chalk" aria-hidden="true">
-    <svg viewBox="0 0 24 24" width="24" height="24">
-      <polygon points="2,22 6,2 14,4 10,24" fill="#FAF6EC" opacity="0.96"/>
-      <polygon points="6,2 14,4 11,8 7,6" fill="#E5DDC8" opacity="0.9"/>
-    </svg>
-  </div>
-
-  <!-- Engine: PASSED | All Signatures: YES | Anti-Patterns: 0 -->
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
